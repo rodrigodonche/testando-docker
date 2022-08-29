@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('formSoma');
 });
+
+Route::get('/form-soma', 'HomeController@formSoma')->name('formSoma');
+Route::post('/soma', 'HomeController@soma')->name('soma');
