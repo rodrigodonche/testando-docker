@@ -9,12 +9,24 @@
 </head>
 <body>
 
-    @if (isset($resposta))
-        <h1>
-            Número 1: {{ $resposta[0] }} <br>
-            Número 2: {{ $resposta[1] }} <br>
-            <span>SOMA</span>: {{ $resposta[2] }} <br>
-        </h1>
+    @if (Count($somas) != 0)
+        <h3>
+            @php
+                $count = 0;
+            @endphp
+            @foreach ($somas as $s)
+
+                @php
+                    $count++;
+                @endphp
+
+                ---------- {{ $count }} ---------- <br>
+                Número 1: {{ $s->numero1 }} <br>
+                Número 2: {{ $s->numero2 }} <br>
+                <span>SOMA</span>: {{ $s->soma }} <br><br>
+
+            @endforeach
+        </h3>
     @endif
 
     <form action="{{ route('soma') }}" method="post">
